@@ -1,0 +1,33 @@
+📌 Project Introduction
+
+This project is a data migration and synchronization pipeline built using Python that transfers data from Snowflake (source) to Azure SQL Managed Instance (target).
+
+It is designed to perform incremental data loading, meaning it only processes new or updated records instead of reloading the entire dataset every time.
+
+⚙️ Key Features
+Automatic Table Creation
+If a table does not exist in Azure SQL, the system automatically creates it based on Snowflake schema.
+Schema Comparison & Handling
+Detects schema changes and recreates target tables when needed.
+Multiple Load Strategies
+Supports different data loading methods like:
+INSERT only
+UPSERT (update + insert)
+DELETE + INSERT
+TRUNCATE + INSERT
+UPSERT with DELETE handling
+Staging Table Approach
+Uses temporary staging tables to safely process and merge data.
+Watermark-Based Incremental Load
+Tracks the last updated timestamp to fetch only new/modified records.
+Audit Logging System
+Logs every operation (start, success, failure, row counts, duration) into audit tables.
+Parallel Processing
+Uses multithreading to process multiple tables simultaneously for better performance.
+🎯 Purpose
+
+The main goal of this project is to build a robust, scalable ETL (Extract, Transform, Load) pipeline that ensures:
+
+Data consistency between Snowflake and Azure SQL
+Efficient data transfer
+Proper monitoring and error handling
